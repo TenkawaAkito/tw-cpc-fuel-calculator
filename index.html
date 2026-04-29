@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣中油 92 / 95 油價計算器</title>
+    <meta
+      name="description"
+      content="查詢台灣中油 92 / 95 無鉛最新油價，快速計算付款金額與可加公升數。"
+    >
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Taiwan CPC Fuel Calculator</p>
+        <h1>台灣中油 92 / 95 油價計算器</h1>
+        <p class="intro">
+          顯示最新 92、95 無鉛價格，支援金額與公升雙向換算，適合手機與桌機快速使用。
+        </p>
+      </section>
+
+      <section class="panel prices-panel" aria-labelledby="prices-title">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">最新油價</p>
+            <h2 id="prices-title">本週公告價格</h2>
+          </div>
+          <span id="effective-date" class="badge">載入中</span>
+        </div>
+
+        <div class="price-grid">
+          <article class="price-card" data-fuel-card="92">
+            <p class="fuel-code">92</p>
+            <h3>92 無鉛</h3>
+            <p class="price-value">
+              <span id="price-92">--</span>
+              <span class="unit">元 / 公升</span>
+            </p>
+          </article>
+
+          <article class="price-card" data-fuel-card="95">
+            <p class="fuel-code">95</p>
+            <h3>95 無鉛</h3>
+            <p class="price-value">
+              <span id="price-95">--</span>
+              <span class="unit">元 / 公升</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel calculator-panel" aria-labelledby="calculator-title">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">價格換算</p>
+            <h2 id="calculator-title">加油計算器</h2>
+          </div>
+        </div>
+
+        <div class="fuel-switch" role="tablist" aria-label="選擇油品">
+          <button class="fuel-tab is-active" type="button" data-fuel="92" aria-selected="true">
+            92 無鉛
+          </button>
+          <button class="fuel-tab" type="button" data-fuel="95" aria-selected="false">
+            95 無鉛
+          </button>
+        </div>
+
+        <div class="selected-fuel">
+          <p>目前使用</p>
+          <strong id="selected-fuel-name">92 無鉛</strong>
+          <span id="selected-fuel-price">-- 元 / 公升</span>
+        </div>
+
+        <div class="calculator-grid">
+          <section class="calc-card" aria-labelledby="amount-title">
+            <div class="calc-head">
+              <h3 id="amount-title">輸入付款金額</h3>
+              <p>計算可加幾公升</p>
+            </div>
+
+            <label class="input-wrap" for="amount-input">
+              <span>付款金額</span>
+              <div class="input-shell">
+                <input id="amount-input" type="number" inputmode="decimal" min="0" step="1" placeholder="例如 500">
+                <span>元</span>
+              </div>
+            </label>
+
+            <div class="quick-buttons" aria-label="快速金額">
+              <button type="button" class="quick-button" data-amount="100">100 元</button>
+              <button type="button" class="quick-button" data-amount="105">105 元</button>
+              <button type="button" class="quick-button" data-amount="110">110 元</button>
+              <button type="button" class="quick-button" data-amount="120">120 元</button>
+              <button type="button" class="quick-button" data-amount="130">130 元</button>
+            </div>
+
+            <div class="result-card">
+              <p class="result-label">可加油量</p>
+              <p class="result-value"><span id="liters-result">0.000</span> 公升</p>
+            </div>
+          </section>
+
+          <section class="calc-card" aria-labelledby="liters-title">
+            <div class="calc-head">
+              <h3 id="liters-title">輸入公升數</h3>
+              <p>計算實際金額</p>
+            </div>
+
+            <label class="input-wrap" for="liters-input">
+              <span>公升數</span>
+              <div class="input-shell">
+                <input id="liters-input" type="number" inputmode="decimal" min="0" step="0.001" placeholder="例如 10.5">
+                <span>公升</span>
+              </div>
+            </label>
+
+            <div class="result-card">
+              <p class="result-label">應付金額</p>
+              <p class="result-value"><span id="amount-result">0</span> 元</p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel notes-panel" aria-labelledby="notes-title">
+        <div class="panel-head">
+          <div>
+            <p class="section-label">資料說明</p>
+            <h2 id="notes-title">來源與更新資訊</h2>
+          </div>
+        </div>
+
+        <dl class="meta-list">
+          <div>
+            <dt>資料來源</dt>
+            <dd><a id="official-link" href="https://vipmbr.cpc.com.tw/mbwebs/showhistoryprice_oil.aspx" target="_blank" rel="noreferrer">台灣中油官方</a></dd>
+          </div>
+          <div>
+            <dt>第三方參考</dt>
+            <dd>
+              <a id="reference-link" href="https://gasoline.transmit-info.com/" target="_blank" rel="noreferrer">gasoline.transmit-info.com</a>
+              <span class="reference-note">僅供參考</span>
+            </dd>
+          </div>
+          <div>
+            <dt>最後更新時間</dt>
+            <dd id="updated-at">載入中</dd>
+          </div>
+          <div>
+            <dt>比對狀態</dt>
+            <dd id="reference-check">載入中</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <template id="error-template">
+      <section class="panel error-panel">
+        <h2>資料載入失敗</h2>
+        <p>目前無法讀取油價資料，請稍後重新整理頁面。</p>
+      </section>
+    </template>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
