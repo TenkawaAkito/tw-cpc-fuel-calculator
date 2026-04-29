@@ -2,12 +2,8 @@ name: Update CPC fuel prices and deploy Pages
 
 on:
   workflow_dispatch:
-
   schedule:
-    # 台灣時間每週一 00:15 = UTC 週日 16:15
     - cron: "15 16 * * 0"
-
-    # 台灣時間每週一 09:30 = UTC 週一 01:30
     - cron: "30 1 * * 1"
 
 permissions:
@@ -16,27 +12,26 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  update-and-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Update CPC fuel prices
+      - name: Update CPC prices
         run: node scripts/update-prices.mjs
 
       - name: Configure GitHub Pages
@@ -45,7 +40,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
