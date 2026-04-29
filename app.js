@@ -1,6 +1,6 @@
 const state = {
   prices: null,
-  selectedFuel: "92",
+  selectedFuel: "95",
 };
 
 const elements = {
@@ -15,7 +15,8 @@ const elements = {
   amountInput: document.querySelector("#amount-input"),
   litersInput: document.querySelector("#liters-input"),
   fuelTabs: Array.from(document.querySelectorAll(".fuel-tab")),
-  quickButtons: Array.from(document.querySelectorAll(".quick-button")),
+  amountQuickButtons: Array.from(document.querySelectorAll("[data-amount]")),
+  literQuickButtons: Array.from(document.querySelectorAll("[data-liters]")),
   referenceCheck: document.querySelector("#reference-check"),
   officialLink: document.querySelector("#official-link"),
   referenceLink: document.querySelector("#reference-link"),
@@ -58,10 +59,17 @@ function bindEvents() {
   elements.amountInput.addEventListener("input", updateFromAmount);
   elements.litersInput.addEventListener("input", updateFromLiters);
 
-  elements.quickButtons.forEach((button) => {
+  elements.amountQuickButtons.forEach((button) => {
     button.addEventListener("click", () => {
       elements.amountInput.value = button.dataset.amount;
       updateFromAmount();
+    });
+  });
+
+  elements.literQuickButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      elements.litersInput.value = button.dataset.liters;
+      updateFromLiters();
     });
   });
 }

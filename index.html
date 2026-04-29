@@ -59,17 +59,17 @@
         </div>
 
         <div class="fuel-switch" role="tablist" aria-label="選擇油品">
-          <button class="fuel-tab is-active" type="button" data-fuel="92" aria-selected="true">
+          <button class="fuel-tab" type="button" data-fuel="92" aria-selected="false">
             92 無鉛
           </button>
-          <button class="fuel-tab" type="button" data-fuel="95" aria-selected="false">
+          <button class="fuel-tab is-active" type="button" data-fuel="95" aria-selected="true">
             95 無鉛
           </button>
         </div>
 
         <div class="selected-fuel">
           <p>目前使用</p>
-          <strong id="selected-fuel-name">92 無鉛</strong>
+          <strong id="selected-fuel-name">95 無鉛</strong>
           <span id="selected-fuel-price">-- 元 / 公升</span>
         </div>
 
@@ -115,6 +115,14 @@
                 <span>公升</span>
               </div>
             </label>
+
+            <div class="quick-buttons" aria-label="快速公升">
+              <button type="button" class="quick-button" data-liters="1">1 公升</button>
+              <button type="button" class="quick-button" data-liters="2">2 公升</button>
+              <button type="button" class="quick-button" data-liters="3">3 公升</button>
+              <button type="button" class="quick-button" data-liters="4">4 公升</button>
+              <button type="button" class="quick-button" data-liters="5">5 公升</button>
+            </div>
 
             <div class="result-card">
               <p class="result-label">應付金額</p>
