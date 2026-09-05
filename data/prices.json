@@ -2,20 +2,20 @@
   "source": "台灣中油官方汽、柴、燃油歷史價格",
   "officialUrl": "https://vipmbr.cpc.com.tw/mbwebs/showhistoryprice_oil.aspx",
   "referenceUrl": "https://gasoline.transmit-info.com/",
-  "effectiveDate": "2026/4/27",
-  "updatedAt": "2026-04-29T17:46:22+08:00",
+  "effectiveDate": "2026/8/31",
+  "updatedAt": "2026-09-05T14:02:15+08:00",
   "fuels": {
     "92": {
       "name": "92 無鉛",
-      "price": 32.4
+      "price": 30.5
     },
     "95": {
       "name": "95 無鉛",
-      "price": 33.9
+      "price": 32
     }
   },
   "referenceCheck": {
     "status": "matched",
-    "message": "第三方顯示 92=32.4、95=33.9，與官方一致。"
+    "message": "第三方顯示 92=30.5、95=32，與官方一致。"
   }
 }
