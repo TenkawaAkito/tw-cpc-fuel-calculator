@@ -2,8 +2,8 @@
   "source": "台灣中油官方汽、柴、燃油歷史價格",
   "officialUrl": "https://vipmbr.cpc.com.tw/mbwebs/showhistoryprice_oil.aspx",
   "referenceUrl": "https://gasoline.transmit-info.com/",
-  "effectiveDate": "2026/8/31",
-  "updatedAt": "2026-09-05T14:02:15+08:00",
+  "effectiveDate": "2026/9/7",
+  "updatedAt": "2026-09-06T14:14:19+08:00",
   "fuels": {
     "92": {
       "name": "92 無鉛",
